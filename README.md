@@ -5,7 +5,11 @@
 Com este aplicativo, é possível adicionar participantes, removê-los, e exibir o número total de participantes registrados.
 
 ## 📹 Demonstração
-<video src="./assets/app demonstration.mp4" controls width="600"></video>
+https://github.com/user-attachments/assets/0aaf033e-5967-4e68-a59b-e53e1565d685
+
+
+
+
 
 
 
