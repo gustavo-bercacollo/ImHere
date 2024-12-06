@@ -4,6 +4,11 @@
 **ImHere** é um aplicativo desenvolvido em React Native para gerenciar a lista de participantes de um evento. 
 Com este aplicativo, é possível adicionar participantes, removê-los, e exibir o número total de participantes registrados.
 
+## 📹 Demonstração
+<video src="./assets/app demonstration.mp4" controls width="600"></video>
+
+
+
 ## 📱 Funcionalidades
 
 - Adicionar participantes à lista.

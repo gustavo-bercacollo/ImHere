@@ -17,7 +17,6 @@ export function Home() {
     if(participantName.trim() === ""){
       return Alert.alert("Nome invalido", "O nome do participante não pode estar vazio.")
     }
-
     
     setParticipants(prevState => [...prevState, participantName.trim()]);
     setParticipantName("");
