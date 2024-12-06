@@ -6,7 +6,7 @@ import { TextInputMask } from "react-native-masked-text";
 
 
 export function Home() {
-  const [participants, setParticipants] = useState<string[]>([]);
+  const [participants, setParticipants] = useState<{id: string, name: string}[]>([]);
   const [participantName, setParticipantName] = useState("");  
   const [eventName, setEventName] = useState("");
   const [eventDate, setEventDate] = useState("");
@@ -17,17 +17,23 @@ export function Home() {
     if(participantName.trim() === ""){
       return Alert.alert("Nome invalido", "O nome do participante não pode estar vazio.")
     }
+
+    const newParticipant = {
+      id: `${Date.now()}`+ `${Math.floor(Math.random() * 1000)}`,   
+      name: participantName.trim(),  
+    };
     
-    setParticipants(prevState => [...prevState, participantName.trim()]);
+    
+    setParticipants(prevState => [...prevState, newParticipant]);
     setParticipantName("");
   }
 
   
-  function handleParticipantRemove(name: string) {
+  function handleParticipantRemove(name: string, id: string) {
     Alert.alert("", `Remover o participante ${name}?`, [
       {
         text: "Sim",
-        onPress: () => setParticipants(prevState => participants.filter(participant => participant !== name)),
+        onPress: () => setParticipants(prevState => participants.filter(participant => participant.id !== id)),
       },
       {
         text: "Não",
@@ -91,12 +97,12 @@ export function Home() {
 
       <FlatList
         data={participants}
-        keyExtractor={item => item}
-        renderItem={({ item }) => (
+        keyExtractor={user => user.id}
+        renderItem={({item}) => (
           <Participant 
-            key={item} 
-            name={item} 
-            onRemove={() => handleParticipantRemove(item)} 
+            key={item.id} 
+            name={item.name} 
+            onRemove={() => handleParticipantRemove(item.name, item.id)} 
           />
         )}
         showsVerticalScrollIndicator={false}
